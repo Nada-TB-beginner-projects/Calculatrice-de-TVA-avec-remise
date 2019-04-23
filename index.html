@@ -10,23 +10,25 @@
 		<h1>Bienvenue sur le site de calcul de la TVA avec remise choisie par vous What else?</h1>
 	</header>
 	<main>
-		<form>
+		<form name="calculatrice" method="post" action="result.html" onsubmit=" return calculTTC(this)" >
 			<h2>Votre calculatrice</h2>
 			<fieldset>
 				<label for="HTT">introduisez votre prix HTT</label>
-				<input type="text" name="HTT" id="HTT" placeholder="veuillez-introduire un nombre">
+				<input type="text" name="price" id="price" placeholder="veuillez-introduire un nombre" onfocus="this.value=''">
 				<!--comment ajuster la taille du texte de placeholder-->
-				<label for="choice">voulez-vous une remise?</label>
+				<!--<label for="choice">voulez-vous une remise?</label>
 				<select id="choice">
 					<option value="oui">oui</option>
 					<option value="non">non</option>
 				</select>
-				<button type="submit">Calculer</button>
+				<label for="remise">introduisez le taux de remise souhaité</label>
+				<input type="text" name="remise" id="remise">-->
+				<input type="submit" name="boutonSubmit" id="boutonSubmit" value="Calculer"  >
 				
 			</fieldset>
 		</form>
 	</main>
 	<footer></footer>
-
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
