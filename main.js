@@ -1,17 +1,19 @@
 "use strict"; 
 //*********************************variables*****************************************************//
+
 /* pour acceder à mon formulaire : document.forms["calculatrice"] ou bien document.calculatrice*/
+
 var HTT;
 var TTC;
 const TAUX_TVA =20;
 var TVA;
-var remise;
-var TTCremise;
+var discount;
+var TTCdiscount;
 var price = document.getElementById("price");
 var result = document.getElementById("result");
 var choice= document.getElementById("choice");
-var discount=document.getElementById("remise");
-var buttonCaclcul= document.getElementById("calcul");
+var discount=document.getElementById("discount");
+var buttonCaclcul= document.getElementById("calculation");
 var buttonClear= document.getElementById("clear");
 var message = document.querySelector("p");
 
@@ -21,30 +23,31 @@ var message = document.querySelector("p");
 function calculTTC(){
 	HTT =price.value;
     HTT=parseFloat(HTT);
-	if (isNaN(HTT)== false && HTT !== 0){
+	if (isNaN(HTT)== false && HTT > 0){
 	TVA=HTT*TAUX_TVA/100;
 	TTC=TVA+HTT;
 	}
 }
 	
-function calculTTCsansRemise() {
+function calculTTCsansdiscount() {
 	calculTTC();
 	if(isNaN(TTC) == false){
 	result.value = TTC;
 	}else{
-		message.textContent="vous n'avez pas saisi un nombre";
+		result.value="";
 	}
 	}
 	
-function calculTTCavecRemise(){
-	remise= discount.value;
-	remise=parseFloat(remise);
-	if (isNaN(remise) ==false && remise >0) {
+function calculTTCavecdiscount(){
+	discount= discount.value;
+	discount=parseFloat(discount);
+	if (isNaN(discount) ==false && discount >0) {
 		calculTTC();
-		TTCremise= TTC-(TTC*remise/100);
-		result.value= TTCremise;
+		TTCdiscount= TTC-(TTC*discount/100);
+		result.value= TTCdiscount;
 	}else{
-		message.textContent="vous n'avez pas defini de remise";
+		message.textContent="vous n'avez pas defini de discount";
+		result.value="";
 }
 }
 
@@ -60,10 +63,26 @@ function clear() {
 
 
 buttonCaclcul.addEventListener('click', function(){
-	if(choice.value == "oui" && (isNaN(price.value)== false && price.value!=="")){
-		calculTTCavecRemise();
+	
+	switch(choice.value){
+		case"oui":
+		if(isNaN(price.value)==false && price.value!==""){
+		calculTTCavecdiscount();
 	}else{
-		calculTTCsansRemise();
+		message.textContent="vous n'avez pas saisi un nombre";
+	
+	}
+		break;
+
+		case "non":
+		if(isNaN(price.value)==false&& price.value!==""){
+		calculTTCsansdiscount();
+	}else{
+		message.textContent="vous n'avez pas saisi un nombre";
+	}
+		break;
+		default:
+		clear();
 	}
 });
 
