@@ -5,7 +5,7 @@
 
 var HTT;
 var TTC;
-const TAUX_TVA =20;
+const TAUX_TVA =20.0;
 var TVA;
 var discount;
 var TTCdiscount;
@@ -13,7 +13,7 @@ var price = document.getElementById("price");
 var result = document.getElementById("result");
 var choice= document.getElementById("choice");
 var discountInput=document.getElementById("discount");
-var buttonCaclcul= document.getElementById("calculation");
+var buttonCalcul= document.getElementById("calculation");
 var buttonClear= document.getElementById("clear");
 var message = document.querySelector("p");
 
@@ -66,11 +66,9 @@ function clear(){
 	
 }
 
-
-
 //**************************************Events***********************************************//
 
-buttonCaclcul.addEventListener('click', function(){
+buttonCalcul.addEventListener('click', function(){
 	if(isNaN(price.value)==false){
 	if(choice.value =="oui"){
 		calculTTCWithDiscount();
