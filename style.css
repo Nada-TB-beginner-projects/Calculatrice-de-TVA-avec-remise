@@ -41,8 +41,14 @@ fieldset {
 
 button {
 	padding: 0 15px;
-	margin:10px 100px;
+	margin:10px 32px ;
 	text-align: center;
 	
 }
+ p {
+ 	text-align: center;
+ 	text-transform: uppercase;
+ 	font-weight: bold;
+ 	background-color: red;
 
+ }
