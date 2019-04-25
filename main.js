@@ -74,7 +74,7 @@ function clear(){
 //**************************************Events***********************************************//
 
 buttonCalcul.addEventListener('click', function(){
-	if(isNaN(price.value)==false){
+	if(isNaN(price.value)==false && price.value!==""){
 	switch(choice.value){
 		case "oui":
 		calculTTCWithDiscount();
@@ -84,8 +84,9 @@ buttonCalcul.addEventListener('click', function(){
 		calculTTCWithOutDiscount();
 		break;
 
-		default:
+		case "":
 		message3();
+		break;
 	}
 }else{
 	message1();
