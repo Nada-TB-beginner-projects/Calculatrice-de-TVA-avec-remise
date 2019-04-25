@@ -26,6 +26,11 @@ function message2() {
 	message.textContent="vous n'avez pas saisi le taux de remise";
 }
 
+
+function message3() {
+	message.textContent="vous n'avez pas précisé si vous voulez une remise ou pas";
+}
+
 function calculTTC(){
 	HTT= parseFloat(price.value);
 	if(isNaN(price.value)==false && price.value >0){
@@ -70,10 +75,17 @@ function clear(){
 
 buttonCalcul.addEventListener('click', function(){
 	if(isNaN(price.value)==false){
-	if(choice.value =="oui"){
+	switch(choice.value){
+		case "oui":
 		calculTTCWithDiscount();
-	}else{
+		break;
+
+		case "non":
 		calculTTCWithOutDiscount();
+		break;
+
+		default:
+		message3();
 	}
 }else{
 	message1();
