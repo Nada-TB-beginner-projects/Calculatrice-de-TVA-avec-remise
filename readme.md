@@ -1,6 +1,6 @@
 # Sales tax calculator (french version):
 
-### View result here [link](https://nada-tb.github.io/CalculatriceTTC/)
+### View result here [link](https://nada-tb-beginner-projects.github.io/CalculatriceTTC/)
 
 * ### [The application's features](#the-applications-features-)
 * ### [Development process](#development-process-1)	
